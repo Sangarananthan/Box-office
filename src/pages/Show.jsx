@@ -1,10 +1,8 @@
 import { useParams } from 'react-router-dom';
-// import { useShowByID } from '../api/useShowByID';
 import { useQuery } from '@tanstack/react-query';
 import { getShowByID } from '../api/Tvmaze';
 const Show = () => {
   const { showid } = useParams();
-  //   const { showError, showdata } = useShowByID(showid);
   const { data: showdata, error: showError } = useQuery({
     queryKey: ['show', showid],
     queryFn: () => getShowByID(showid),
