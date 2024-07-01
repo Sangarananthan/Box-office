@@ -12,11 +12,7 @@ const ShowCard = ({ show }) => {
   return (
     <div>
       <div>
-        <img
-          src={image ? image.medium : '/image_not_found.png'}
-          alt={name}
-          //   style={{ width: '210px', height: '295px' }}
-        />
+        <img src={image ? image.medium : '/image_not_found.png'} alt={name} />
       </div>
       <h1>{name}</h1>
       <p>{summaryStriped}</p>

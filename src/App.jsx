@@ -16,7 +16,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/starred" element={<Starred />} />
           </Route>
-          <Route path="/show/:showid" element={<Show />} />
+          <Route path="/shows/:showid" element={<Show />} />
           <Route path="*" element={<h2>Page not found 404 :)</h2>} />
         </Routes>
       </BrowserRouter>
