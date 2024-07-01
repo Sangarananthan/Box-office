@@ -1,31 +1,17 @@
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getShowByID } from '../api/Tvmaze';
+import { useShowByID } from '../api/useShowByID';
+
 const Show = () => {
   const { showid } = useParams();
-  const [showdata, setShowData] = useState(null);
-  const [showError, setShowError] = useState(null);
-  console.log(showdata);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const data = await getShowByID(showid);
-        setShowData(data);
-      } catch (error) {
-        setShowError(error);
-      }
-    }
-    fetchData();
-  }, [showid]);
-
+  const { showError, showdata } = useShowByID(showid);
   if (showError) {
     return <div>We have an error: {showdata}</div>;
   }
   if (showdata) {
     return <div>Got Show Data: {showdata.name}</div>;
   }
-  return <div>Show</div>;
+  console.log(showdata);
+  return <div>{showdata}</div>;
 };
 
 export default Show;
