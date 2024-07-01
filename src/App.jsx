@@ -1,12 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Starred from './pages/Starred';
+import MainLayout from './pages/Components/MainLayout';
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/starred" element={<Starred />} />
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/starred" element={<Starred />} />
+        </Route>
         <Route path="*" element={<h2>Page not found 404 :)</h2>} />
         {/* <Route path="/" element={<App />}>
           <Route index element={<Home />} />
