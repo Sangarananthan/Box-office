@@ -29,7 +29,7 @@ const Home = () => {
     if (!apiData || apiData.length === 0) {
       return 'No Match Found :)';
     }
-    return apiData[0].show ? (
+    return filter.searchOption === 'shows' ? (
       <ShowGrid shows={apiData} />
     ) : (
       <ActorGrid actors={apiData} />

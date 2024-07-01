@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const ShowCard = ({ show }) => {
   const { name, image, summary, id } = show;
@@ -17,7 +17,9 @@ const ShowCard = ({ show }) => {
       <h1>{name}</h1>
       <p>{summaryStriped}</p>
       <div id={id}>
-        <Link to={`/shows/${id}`}>Read more</Link>
+        <a href={`/shows/${id}`} target="_blank" rel="noreferrer">
+          Read more
+        </a>
         <button type="button">Star me</button>
       </div>
     </div>
