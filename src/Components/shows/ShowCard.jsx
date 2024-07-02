@@ -3,6 +3,8 @@ import { SearchCard, SearchImgWrapper } from '../common/SearchCard';
 import { StarIcon } from '../common/StarIcon';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import image_not_found from '../../lib/image_not_found.png';
+
 const ShowCard = ({ show, onStarClick, isStarred }) => {
   const { name, image, summary, id } = show;
   const summaryStriped = summary
@@ -27,7 +29,7 @@ const ShowCard = ({ show, onStarClick, isStarred }) => {
   return (
     <SearchCard>
       <SearchImgWrapper>
-        <img src={image ? image.medium : '/image_not_found.png'} alt={name} />
+        <img src={image ? image.medium : image_not_found} alt={name} />
       </SearchImgWrapper>
       <h1>{name}</h1>
       <p>{summaryStriped}</p>
