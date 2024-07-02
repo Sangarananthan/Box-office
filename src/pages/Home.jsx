@@ -4,6 +4,7 @@ import { searchForShows, searchForPeople } from '../api/Tvmaze';
 import SearchForm from '../Components/SearchForm';
 import ShowGrid from '../Components/shows/ShowGrid';
 import ActorGrid from '../Components/actors/ActorGrid';
+import { TextCenter } from '../Components/common/TextCenter';
 
 const Home = () => {
   const [filter, setFilter] = useState(null);
@@ -26,8 +27,8 @@ const Home = () => {
     if (apiDataError) {
       return <>Oops!! Error Occurred: {apiDataError.message}</>;
     }
-    if (!apiData || apiData.length === 0) {
-      return 'No Match Found :)';
+    if (filter.q && (!apiData || apiData.length === 0)) {
+      return <TextCenter>No results</TextCenter>;
     }
     return filter.searchOption === 'shows' ? (
       <ShowGrid shows={apiData} />

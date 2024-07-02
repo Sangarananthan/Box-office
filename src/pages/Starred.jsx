@@ -1,4 +1,5 @@
 import { getShowByIDs } from '../api/Tvmaze';
+import { TextCenter } from '../Components/common/TextCenter';
 import ShowGrid from '../Components/shows/ShowGrid';
 import { useStarredShows } from '../lib/useStaredShows';
 import { useQuery } from '@tanstack/react-query';
@@ -18,7 +19,7 @@ const Starred = () => {
       return <>Oops!! Error Occurred: {starredShowsError.message}</>;
     }
     if (!starredShows || starredShows.length === 0) {
-      return 'Star Movies to View here';
+      return <TextCenter>Star Movies to View here</TextCenter>;
     }
     return <ShowGrid shows={starredShows}></ShowGrid>;
   };
