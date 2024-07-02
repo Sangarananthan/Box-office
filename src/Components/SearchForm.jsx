@@ -1,24 +1,26 @@
 import { useState } from 'react';
+import { useSearchString } from '../lib/useSearchString';
 const SearchForm = ({ onSearch }) => {
-  const [searchStr, setSearchStr] = useState('');
   const [searchOption, setSearchOption] = useState('shows');
-
+  const [searchString, dispatch] = useSearchString();
   const onSubmit = ev => {
     ev.preventDefault();
     const options = {
-      q: searchStr,
+      q: searchString,
       searchOption,
     };
     onSearch(options);
   };
+  const handleChange = ev => {
+    dispatch({ type: 'CHANGE', value: ev.target.value });
+  };
   return (
     <div>
-      {' '}
       <form onSubmit={onSubmit}>
         <input
           type="text"
-          value={searchStr}
-          onChange={e => setSearchStr(e.target.value)}
+          value={searchString}
+          onChange={e => handleChange(e)}
         />
         <label>
           Shows
