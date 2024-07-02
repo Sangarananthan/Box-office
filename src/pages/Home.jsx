@@ -27,7 +27,7 @@ const Home = () => {
     if (apiDataError) {
       return <>Oops!! Error Occurred: {apiDataError.message}</>;
     }
-    if (filter.q && (!apiData || apiData.length === 0)) {
+    if (!apiData || apiData.length === 0) {
       return <TextCenter>No results</TextCenter>;
     }
     return filter.searchOption === 'shows' ? (
